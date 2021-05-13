@@ -63,7 +63,7 @@
          <fileset description="binaries" dir="${dist.dir}">
             <include name="jinput.jar"/>
          </fileset>
-         <fileset description="natibve libs" dir=".">
+         <fileset description="native libs" dir=".">
             <include name="natives/*.dll"/>
             <include name="natives/*.so"/>
             <include name="natives/*.jnilib"/>
