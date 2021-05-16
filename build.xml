@@ -55,7 +55,7 @@
    <target depends="version, -post-init, zipjavadoc" description="create zip files" name="zip">
       <!-- zip binary files for distribution -->
       <zip compress="true" defaultexcludes="true"
-             zipfile="${dist.dir}/${archiveName-LGPL}-bin-${version}.zip">
+             zipfile="${dist.dir}/${archiveName}-bin-${version}.zip">
          <fileset description="docs" dir=".">
             <include name="README"/>
             <include name="CHANGES"/>
@@ -69,11 +69,10 @@
             <include name="natives/*.jnilib"/>
          </fileset>         
       </zip>
-      <!-- zip source files for APACHE - LGPL distribution -->
-      <zip compress="true" defaultexcludes="yes" zipfile="${dist.dir}/${archiveName-APACHE}-src-${version}.zip">
+      <!-- zip source files -->
+      <zip compress="true" defaultexcludes="yes" zipfile="${dist.dir}/${archiveName}-src-${version}.zip">
          <fileset description="core source directory" dir="${src.dir}/..">
-            <include name="src/**/*.java"/>
-            <include name="src/**/*.properties"/>
+            <include name="src/**/*.*"/>
             <include name="src/manifest.mf"/>
          </fileset>
          <fileset description="binaries" dir="${dist.dir}">
@@ -81,7 +80,12 @@
          </fileset>
          <fileset description="project" dir="${dist.dir}/..">
             <include name="nbproject/**/*.*"/>
-         </fileset>                    
+         </fileset>    
+         <fileset description="native libs" dir=".">
+            <include name="natives/*.dll"/>
+            <include name="natives/*.so"/>
+            <include name="natives/*.jnilib"/>
+         </fileset>                          
          <fileset description="misc" dir=".">
             <include name="README"/>
             <include name="CHANGES"/>
